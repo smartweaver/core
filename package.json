@@ -2,8 +2,11 @@
   "name": "smart-weaver",
   "version": "1.0.0",
   "description": "SmartWeave with design patterns",
+  "type": "module",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "publish-local": "yarn unlink && yarn link",
+    "build": "rm -r dist && tsup src/mod.core.ts --format esm --dts && tsup src/modules/mod.clients.ts --format esm --dts && tsup src/modules/mod.contracts.ts --format esm --dts"
   },
   "keywords": [],
   "author": "Eric Crooks",
@@ -15,6 +18,7 @@
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
     "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
     "vitest": "^0.34.6",
     "warp-arbundles": "^1.0.4",
     "warp-contracts": "^1.4.22"
