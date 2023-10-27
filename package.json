@@ -11,6 +11,7 @@
   "devDependencies": {
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
+    "tsup": "^7.2.0",
     "vitest": "^0.34.6",
     "warp-arbundles": "^1.0.4",
     "warp-contracts": "^1.4.22"
