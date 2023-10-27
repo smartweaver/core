@@ -8,6 +8,9 @@
   "keywords": [],
   "author": "Eric Crooks",
   "license": "GPL-3.0",
+  "files": [
+    "./src"
+  ],
   "devDependencies": {
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
