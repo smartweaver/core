@@ -4,10 +4,12 @@ cache/
 dist/
 node_modules/
 tmp/
+core/
+modules/
+!src/
 
 # Files
 .DS_Store
-*.log*
 *.log*
 logs
 # We only use pnpm

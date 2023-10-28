@@ -10,10 +10,9 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2017",
-    "baseUrl": ".",
+    "baseUrl": "../",
     "paths": {
       "@/*": ["./*"]
     }
-  },
-  "exclude": ["**/_unstable*"]
+  }
 }

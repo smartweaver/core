@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-(
-  rm -r dist 2>/dev/null
-
-  pnpm tsup src --format esm --dts --no-splitting
-)

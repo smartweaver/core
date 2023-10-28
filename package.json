@@ -1,6 +1,6 @@
 {
   "name": "@crookse/smart-weaver",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Patternized SmartWeave flows",
   "author": "Eric Crooks",
   "license": "GPL-3.0",
@@ -8,7 +8,7 @@
   "scripts": {
     "test": "vitest",
     "publish-local": "yarn unlink && yarn link",
-    "build": "./scripts/build_dist"
+    "build": "./scripts/build_lib"
   },
   "keywords": [
     "arweave",
@@ -25,9 +25,6 @@
     "smartweave",
     "web3"
   ],
-  "files": [
-    "./dist/**"
-  ],
   "dependencies": {
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
@@ -41,5 +38,8 @@
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
     "vitest": "^0.34.6"
-  }
+  },
+  "files": [
+    "./lib"
+  ]
 }

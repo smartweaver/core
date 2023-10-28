@@ -13,7 +13,7 @@ export default defineConfig({
     ],
     cache: false,
     alias: {
-      "*": new URL("./", import.meta.url).pathname,
+      "@/": new URL("./", import.meta.url).pathname,
     },
   },
 });
