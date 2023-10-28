@@ -3,7 +3,7 @@ export type Context<S = unknown, P = any> = {
   action: {
     input: {
       function: string;
-      payload?: P;
+      payload: P;
     };
     caller?: string;
   };

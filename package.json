@@ -1,6 +1,6 @@
 {
   "name": "@crookse/smart-weaver",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Patternized SmartWeave flows",
   "author": "Eric Crooks",
   "license": "GPL-3.0",
