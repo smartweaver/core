@@ -2,6 +2,7 @@
 .vscode/
 cache/
 dist/
+lib/
 node_modules/
 tmp/
 
