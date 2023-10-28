@@ -1,14 +1,14 @@
 {
   "name": "@crookse/smart-weaver",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Patternized SmartWeave flows",
   "author": "Eric Crooks",
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "publish-local": "yarn unlink && yarn link",
-    "build": "./scripts/build_lib"
+    "build": "./scripts/build_lib",
+    "publish-package": "pnpm build && pnpm publish"
   },
   "keywords": [
     "arweave",
