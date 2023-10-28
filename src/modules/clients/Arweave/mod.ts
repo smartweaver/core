@@ -3,10 +3,11 @@ import { DeployChain, DeployChainCreateOptions } from "./chains/DeployChain.ts";
 import { WriterChain, WriterChainCreateOptions } from "./chains/WriterChain.ts";
 import { ReaderChain, ReaderChainCreateOptions } from "./chains/ReaderChain.ts";
 import { ViewerChain, ViewerChainCreateOptions } from "./chains/ViewerChain.ts";
+import { ChainWithUseMethod } from "./chains/ChainWithUseMethod.ts";
 
 export class Client {
   static builder() {
-    return new Chain();
+    return new ChainWithUseMethod();
   }
 
   /**

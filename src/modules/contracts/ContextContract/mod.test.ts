@@ -6,7 +6,7 @@ interface Context<S, P = any> extends BaseContext<S, P> {
   action: {
     input: {
       function: string;
-      payload: P
+      payload?: P
     }
   }
 }
@@ -20,7 +20,7 @@ describe("methods", () => {
         function_name = "add";
 
         handle(context: Context<typeof state, number>) {
-          context.state.greetings.push(context.action.input.payload);
+          context.state.greetings.push(context.action.input.payload!);
           return context;
         }
       }
@@ -28,7 +28,7 @@ describe("methods", () => {
       const contract = Contract
         .builder()
         .initialState(state)
-        .interaction(new Add())
+        .action(new Add())
         .build();
 
       function createContext(payload: number) {
@@ -70,15 +70,30 @@ describe("methods", () => {
         }
       }
 
+
+      class NoHandleMethod extends Contract.Handler {
+        function_name = "add";
+
+        public handle(context: any) {
+          return context;
+        }
+      }
+
       const contract = Contract
         .builder()
         .initialState(state)
-        .interaction(new Add())
-        .interaction("pop", (context) => {
+        .action(new Add())
+        .action("pop", (context) => {
           context.state.greetings.pop();
           return context;
         })
-        .build();
+        .action(new NoHandleMethod())
+        .action("add", (context) => {
+          return context;
+        })
+        .build<Context<typeof state>>();
+
+      expect(contract.functions.length).toBe(4)
 
       let result;
 
@@ -91,6 +106,7 @@ describe("methods", () => {
           },
         },
       });
+
       expect(result.state).toStrictEqual({ greetings: [0, 1, 11] });
 
       result = await contract.handle({

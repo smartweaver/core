@@ -43,7 +43,7 @@ export class Handler {
       .resolve()
       .then(() => {
         if (this.next_handler !== null) {
-          return this.next_handler.handle(context) as Promise<C>;
+          return this.next_handler.handle(context);
         }
 
         return context;

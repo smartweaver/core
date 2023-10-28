@@ -2,7 +2,7 @@ import { Handler } from "../../../../core/Handler.ts";
 import { ContextShapeValidator } from "../validators/ContextShapeValidator.ts";
 import { Context } from "../types/Context.ts";
 
-export class ContractGuard<S> extends Handler {
+export class IncomingFunctionValidator<S> extends Handler {
     /**
      * All functions this contract can handle.
      */
@@ -14,9 +14,7 @@ export class ContractGuard<S> extends Handler {
     }
   
     /**
-     * Handle the incoming context and return it back to the caller with or
-     * without modifications. The caller is responsible for handling the context
-     * object further.
+     * Check that the incoming context can be handled.
      * @param context
      * @returns The resulting state.
      */
