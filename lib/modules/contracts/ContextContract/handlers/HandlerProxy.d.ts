@@ -1,20 +1,16 @@
-import {
-  ContextHandlerFunction,
-  HandleFnHandler,
-} from "../../../base/HandleFnHandler.js";
-import "../../../../core/Handler.js";
+import { AnonymousFnHandler, AnonymousFn } from '../../../base/AnonymousFnHandler.js';
+import { Context } from '../types/Context.js';
+import '../../../../core/Handler.js';
 
 interface HandlerWithFunctionName {
-  function_name: string;
-  handle(context: any): any;
+    function_name: string;
+    handle(context: any): any;
 }
-declare class HandlerProxy extends HandleFnHandler {
-  readonly function_name: string;
-  readonly metadata: {
-    name: string;
-  };
-  constructor(fn: string, handleFn: ContextHandlerFunction);
-  handle(context: any): Promise<any>;
+declare class HandlerProxy extends AnonymousFnHandler {
+    readonly function_name: any;
+    readonly metadata: any;
+    constructor(fn: string, handleFn: AnonymousFn);
+    handle(context: Context): Promise<any>;
 }
 
 export { HandlerProxy, HandlerWithFunctionName };

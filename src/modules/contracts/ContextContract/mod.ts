@@ -1,6 +1,8 @@
 import { ChainWithContractMembers } from "./chains/ChainWithContractMembers.ts";
 import { Handler } from "./handlers/Handler.ts";
 
+export { Context as ContractContext} from "./types/Context.ts";
+
 export class Contract {
   /**
    * Handler class that should be extended and used by users of the `Contract`.

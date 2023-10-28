@@ -1,12 +1,12 @@
 type Context<S = unknown, P = any> = {
-  state: S;
-  action: {
-    input: {
-      function: string;
-      payload?: P;
+    state: S;
+    action: {
+        input: {
+            function: string;
+            payload?: P;
+        };
+        caller?: string;
     };
-    caller?: string;
-  };
 };
 
 export { Context };

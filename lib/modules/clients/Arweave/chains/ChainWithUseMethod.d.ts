@@ -1,17 +1,18 @@
-import { Handler } from "../../../../core/Handler.js";
-import { Chain } from "../../../base/Chain.js";
-import { ContextHandlerFunction } from "../../../base/HandleFnHandler.js";
-import "../../../../core/AbstractChainBuilder.js";
+import { AnonymousFn } from '../../../base/AnonymousFnHandler.js';
+import { NextableHandler } from '../../../base/NextableHandler.js';
+import { NextableHandlerChain } from '../../../base/NextableHandlerChain.js';
+import '../../../../core/Handler.js';
 
-declare class ChainWithUseMethod extends Chain {
-  #private;
-  /**
-   * Use the given `handler` in this chain.
-   *
-   * @param handler The handler in question.
-   * @returns This instance for further method chaining.
-   */
-  use(handler: ContextHandlerFunction | Handler): this;
+type AllowedHandlers = AnonymousFn | NextableHandler;
+declare class ChainWithUseMethod extends NextableHandlerChain {
+    #private;
+    /**
+     * Use the given `handler` in this chain.
+     *
+     * @param handler The handler in question.
+     * @returns This instance for further method chaining.
+     */
+    use(handler: AllowedHandlers): this;
 }
 
 export { ChainWithUseMethod };
