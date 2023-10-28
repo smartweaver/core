@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -9,5 +10,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2017"
-  }
+  },
+  "exclude": ["**/_unstable*"]
 }

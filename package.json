@@ -12,15 +12,20 @@
   "author": "Eric Crooks",
   "license": "GPL-3.0",
   "files": [
-    "./src"
+    "./dist/**"
   ],
   "devDependencies": {
+    "arlocal": "^1.1.62",
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
+    "vite": "^4.5.0",
     "vitest": "^0.34.6",
     "warp-arbundles": "^1.0.4",
     "warp-contracts": "^1.4.22"
+  },
+  "dependencies": {
+    "warp-contracts-plugin-deploy": "^1.0.9"
   }
 }

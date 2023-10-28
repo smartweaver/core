@@ -38,12 +38,16 @@ export class Handler {
    * }
    * ```
    */
-  public sendToNextHandler<C extends any>(context: C): Promise<C> {
-    if (this.next_handler !== null) {
-      return this.next_handler.handle(context) as Promise<C>;
-    }
+  public sendToNextHandler<C>(context: C): Promise<C> {
+    return Promise
+      .resolve()
+      .then(() => {
+        if (this.next_handler !== null) {
+          return this.next_handler.handle(context) as Promise<C>;
+        }
 
-    return Promise.resolve(context);
+        return context;
+      });
   }
 
   /**

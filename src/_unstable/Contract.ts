@@ -79,36 +79,36 @@
 //     }
 
 //     if (
-//       !("interaction" in context) ||
-//       !context.interaction ||
-//       (typeof context.interaction !== "object")
+//       !("action" in context) ||
+//       !context.action ||
+//       (typeof context.action !== "object")
 //     ) {
 //       throw new Error(
-//         `Field 'context.interaction' should be an object`,
+//         `Field 'context.action' should be an object`,
 //       );
 //     }
 
 //     if (
-//       !("input" in context.interaction) ||
-//       !context.interaction.input ||
-//       (typeof context.interaction.input !== "object")
+//       !("input" in context.action) ||
+//       !context.action.input ||
+//       (typeof context.action.input !== "object")
 //     ) {
 //       throw new Error(
-//         `Field 'context.interaction.input' should be an object`,
+//         `Field 'context.action.input' should be an object`,
 //       );
 //     }
 
 //     if (
-//       !("function" in context.interaction.input) ||
-//       !context.interaction.input.function ||
-//       (typeof context.interaction.input.function !== "string")
+//       !("function" in context.action.input) ||
+//       !context.action.input.function ||
+//       (typeof context.action.input.function !== "string")
 //     ) {
 //       throw new Error(
-//         `Field 'context.interaction.input.function' should be an string`,
+//         `Field 'context.action.input.function' should be a string`,
 //       );
 //     }
 
-//     const incomingFunction = context.interaction.input.function;
+//     const incomingFunction = context.action.input.function;
 //     if (!(incomingFunction in this.handlers)) {
 //       throw new Error(
 //         `Unknown function '${incomingFunction}' provided. Allowed functions: ${

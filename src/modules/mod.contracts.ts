@@ -1,1 +1,1 @@
-export * from "./contracts/Contract.ts";
+export * from "./contracts/ContextContract/mod.ts";

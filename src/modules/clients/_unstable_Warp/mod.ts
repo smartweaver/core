@@ -2,6 +2,8 @@ import { ArweaveSigner } from "warp-arbundles";
 import { Client as WarpClient } from "./src/Client";
 import { DeployPlugin } from "warp-contracts-plugin-deploy";
 
+export type HandlerFn<I = any, O = any> = (input: I) => O | Promise<O>;
+
 export class Client {
   static create() {
     return WarpClient
