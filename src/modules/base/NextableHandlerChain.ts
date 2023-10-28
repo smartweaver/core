@@ -5,7 +5,6 @@ export type FirstHandler<C> = { handle: <R = any>(context: C) => Promise<R> };
 
 class ChainBuilder extends AbstractChainBuilder<NextableHandler> {
   build() {
-
     if (!this.handlers) {
       throw new Error("Chain.Builder: `this.handlers` should be an array");
     }
@@ -25,7 +24,6 @@ class ChainBuilder extends AbstractChainBuilder<NextableHandler> {
 }
 
 export class NextableHandlerChain {
-
   /**
    * TODO(crookse) Make succint.
    * This class hides the actual chain builder so the exposed members are
@@ -44,7 +42,7 @@ export class NextableHandlerChain {
     return {
       handle: <R = any, C = any>(context: C): Promise<R> => {
         return chain.handle(context);
-      }
-    }
+      },
+    };
   }
 }

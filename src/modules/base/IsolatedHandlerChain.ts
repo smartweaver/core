@@ -23,7 +23,7 @@ class ChainBuilder extends AbstractChainBuilder<Handler> {
         }
 
         return context;
-      }
+      },
     };
   }
 }
@@ -32,7 +32,7 @@ export class IsolatedHandlerChain {
   protected chain_builder: ChainBuilder = new ChainBuilder();
 
   build<
-    HandleMethodContext = any
+    HandleMethodContext = any,
   >(): FirstHandler<HandleMethodContext> {
     const chain = this.chain_builder.build();
     return chain;

@@ -26,7 +26,6 @@
     "web3"
   ],
   "dependencies": {
-
   },
   "devDependencies": {
     "arlocal": "^1.1.62",

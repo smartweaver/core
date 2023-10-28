@@ -8,7 +8,6 @@ type Taggable = {
 type NameValue = { name: string; value: string };
 
 export function tag(taggable: Taggable, tags: Record<string, string>) {
-
   for (const [key, value] of Object.entries(tags)) {
     taggable.addTag(key, value);
   }

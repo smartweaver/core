@@ -1,6 +1,4 @@
-import {
-  AnonymousFn,
-} from "@/src/modules/base/AnonymousFnHandler.ts";
+import { AnonymousFn } from "@/src/modules/base/AnonymousFnHandler.ts";
 import { NextableHandler } from "@/src/modules/base/NextableHandler.ts";
 import { NextableHandlerChain } from "@/src/modules/base/NextableHandlerChain.ts";
 

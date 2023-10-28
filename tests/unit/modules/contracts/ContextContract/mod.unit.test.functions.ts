@@ -117,7 +117,7 @@ const contract = Contract
 
 function handle(currentState: any, action: any) {
   console.log(`Calling handle(state, action)`);
-  
+
   return contract
     .handle({
       state: currentState,
