@@ -1,8 +1,8 @@
 import Arweave from "arweave";
 import { ApiConfig } from "arweave/node/lib/api";
-import { Handler } from "../../../../core/Handler.ts";
+import { NextableHandler } from "@/src/modules/base/NextableHandler.ts";
 
-export class TransactionHandler extends Handler {
+export class ArweaveHandler extends NextableHandler {
   protected arweave: Arweave;
 
   constructor(apiConfig: ApiConfig) {

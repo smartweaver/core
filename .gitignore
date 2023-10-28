@@ -4,9 +4,6 @@ cache/
 dist/
 node_modules/
 tmp/
-core/
-modules/
-!src/
 
 # Files
 .DS_Store

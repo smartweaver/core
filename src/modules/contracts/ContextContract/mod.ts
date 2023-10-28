@@ -1,5 +1,5 @@
-import { Handler } from "../../../core/Handler.ts";
 import { ChainWithContractMembers } from "./chains/ChainWithContractMembers.ts";
+import { Handler } from "./handlers/Handler.ts";
 
 export class Contract {
   /**

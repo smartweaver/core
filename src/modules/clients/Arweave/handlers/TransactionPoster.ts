@@ -1,18 +1,18 @@
 import Transaction from "arweave/node/lib/transaction";
-import { TransactionHandler } from "./TransactionHandler";
+import { ArweaveHandler } from "./ArweaveHandler";
 import Arweave from "arweave";
 
 type TransactionPostResult = Awaited<
   ReturnType<Arweave["transactions"]["post"]>
 >;
 
-export class TransactionPoster extends TransactionHandler {
+export class TransactionPoster extends ArweaveHandler {
   public handle(context: {
     transaction?: Transaction;
     transaction_post_result?: TransactionPostResult;
   }) {
     if (!context.transaction) {
-      return super.sendToNextHandler(context);
+      return super.next(context);
     }
 
     return this
@@ -22,6 +22,6 @@ export class TransactionPoster extends TransactionHandler {
       .then((result) => {
         context.transaction_post_result = result;
       })
-      .then(() => super.sendToNextHandler(context));
+      .then(() => super.next(context));
   }
 }

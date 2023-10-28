@@ -1,4 +1,4 @@
-import { Handler } from "../../../../core/Handler.ts";
+import { NextableHandler } from "@/src/modules/base/NextableHandler.ts";
 import { tag } from "../utils/tagger.ts";
 
 type Context = {
@@ -6,9 +6,11 @@ type Context = {
   tags: Record<string, string>;
 };
 
-export class TransactionTagger extends Handler {
+export class TransactionTagger extends NextableHandler {
   public handle(context: Context) {
-    tag(context.transaction, context.tags);
-    return super.sendToNextHandler(context);
+    return Promise
+      .resolve()
+      .then(() => tag(context.transaction, context.tags))
+      .then(() => super.next(context));
   }
 }

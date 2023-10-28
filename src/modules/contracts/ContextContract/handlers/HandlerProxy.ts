@@ -1,42 +1,37 @@
 import {
-  ContextHandlerFunction,
-  HandleFnHandler,
-} from "../../../base/HandleFnHandler.ts";
-import { ContextShapeValidator } from "../validators/ContextShapeValidator.ts";
+  AnonymousFn,
+  AnonymousFnHandler,
+} from "@/src/modules/base/AnonymousFnHandler.ts";
+import { Context } from "../types/Context.ts";
 
 export interface HandlerWithFunctionName {
   function_name: string;
   handle(context: any): any;
 }
 
-export class HandlerProxy extends HandleFnHandler {
+export class HandlerProxy extends AnonymousFnHandler {
   readonly function_name;
   readonly metadata;
 
-  constructor(fn: string, handleFn: ContextHandlerFunction) {
+  constructor(fn: string, handleFn: AnonymousFn) {
     super(handleFn);
     this.function_name = fn;
     this.metadata = {
-      name: `__HandlerProxy__${fn}`
-    }
+      name: `__HandlerProxy__${fn}`,
+    };
   }
 
-  handle(context: any) {
+  handle(context: Context) {
     return Promise
       .resolve()
-      .then(() => ContextShapeValidator.validate(context))
-      .then((validatedContext) => {
-        const incomingFn = validatedContext.action.input.function;
+      .then(() => {
+        const incomingFn = context.action.input.function;
 
         if (incomingFn !== this.function_name) {
-          return super.sendToNextHandler(validatedContext);
+          return context;
         }
 
-        return validatedContext;
-      })
-      .then((validatedContext) => {
-        const c = this.handlerFn(validatedContext)
-        return c;
-      })
+        return super.handle(context);
+      });
   }
 }

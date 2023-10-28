@@ -1,4 +1,3 @@
-import { Chain } from "../../base/Chain.ts";
 import { DeployChain, DeployChainCreateOptions } from "./chains/DeployChain.ts";
 import { WriterChain, WriterChainCreateOptions } from "./chains/WriterChain.ts";
 import { ReaderChain, ReaderChainCreateOptions } from "./chains/ReaderChain.ts";

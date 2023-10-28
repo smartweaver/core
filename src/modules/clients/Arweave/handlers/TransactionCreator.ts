@@ -1,5 +1,5 @@
 import { JWKInterface } from "arweave/node/lib/wallet";
-import { TransactionHandler } from "./TransactionHandler";
+import { ArweaveHandler } from "./ArweaveHandler";
 import { CreateTransactionInterface } from "arweave/node/common";
 import Transaction from "arweave/node/lib/transaction";
 
@@ -9,7 +9,7 @@ type Context = {
   transaction: Transaction;
 };
 
-export class TransactionCreator extends TransactionHandler {
+export class TransactionCreator extends ArweaveHandler {
   public handle(context: Context) {
     return this
       .arweave
@@ -19,6 +19,6 @@ export class TransactionCreator extends TransactionHandler {
       .then((transaction) => {
         context.transaction = transaction;
       })
-      .then(() => super.sendToNextHandler(context));
+      .then(() => super.next(context));
   }
 }

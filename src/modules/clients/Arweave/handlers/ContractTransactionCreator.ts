@@ -17,13 +17,13 @@ type Context = {
  */
 export class ContractTransactionCreator extends TransactionCreator {
   public handle(context: Context) {
-    this.#validate(context);
-
-    context.transaction_attributes.data = context.initial_state.data!;
-
-    return super
-      .handle(context)
-      .then(() => super.sendToNextHandler(context));
+    return Promise
+      .resolve()
+      .then(() => {
+        this.#validate(context);
+        context.transaction_attributes.data = context.initial_state.data!;
+        return super.handle(context);
+      });
   }
 
   #validate(context: unknown) {

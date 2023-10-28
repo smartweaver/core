@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "outDir": "./dist",
+    "noImplicitAny": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,5 +15,5 @@
       "@/*": ["./*"]
     }
   },
-  "exclude": ["**/_unstable*"]
+  "exclude": ["_unstable*"]
 }

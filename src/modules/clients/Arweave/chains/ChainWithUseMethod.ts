@@ -1,15 +1,19 @@
-import { Handler } from "../../../../core/Handler.ts";
-import { Chain } from "../../../base/Chain.ts";
-import { ContextHandlerFunction, HandleFnHandler } from "../../../base/HandleFnHandler.ts";
+import {
+  AnonymousFn,
+} from "@/src/modules/base/AnonymousFnHandler.ts";
+import { NextableHandler } from "@/src/modules/base/NextableHandler.ts";
+import { NextableHandlerChain } from "@/src/modules/base/NextableHandlerChain.ts";
 
-export class ChainWithUseMethod extends Chain {
+type AllowedHandlers = AnonymousFn | NextableHandler;
+
+export class ChainWithUseMethod extends NextableHandlerChain {
   /**
    * Use the given `handler` in this chain.
    *
    * @param handler The handler in question.
    * @returns This instance for further method chaining.
    */
-  use(handler: ContextHandlerFunction | Handler) {
+  use(handler: AllowedHandlers) {
     return this.#addHandlerToChain(handler);
   }
 
@@ -20,13 +24,29 @@ export class ChainWithUseMethod extends Chain {
    * @param handler The handler in question.
    * @returns This instance for further method chaining.
    */
-  #addHandlerToChain(handler: ContextHandlerFunction | Handler): this {
-    if (handler instanceof Handler) {
-      this.chain_builder.handler(handler);
+  #addHandlerToChain(handler: AllowedHandlers): this {
+    if (handler instanceof NextableHandler) {
+      this.handler(handler);
       return this;
     }
 
-    this.chain_builder.handler(new HandleFnHandler(handler));
+    this.handler(new AnonymousFnHandlerProxy(handler));
     return this;
+  }
+}
+
+class AnonymousFnHandlerProxy extends NextableHandler {
+  protected handleFn: AnonymousFn;
+
+  constructor(handleFn: AnonymousFn) {
+    super();
+    this.handleFn = handleFn;
+  }
+
+  public handle(context: any): Promise<any> {
+    return Promise
+      .resolve()
+      .then(() => this.handleFn(context))
+      .then((returnedContext) => super.next(returnedContext));
   }
 }

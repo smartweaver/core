@@ -1,7 +1,7 @@
 import { ApiConfig } from "arweave/node/lib/api";
-import { Client } from "../mod";
 import Arweave from "arweave/node/common";
 import { SmartWeaveContractInteractReader } from "../handlers/SmartWeaveContractInteractReader.ts";
+import { ChainWithUseMethod } from "./ChainWithUseMethod.ts";
 
 type ReaderChainHandler = {
   handle<R>(context: HandleMethodContext): Promise<HandlerOutput & R>;
@@ -36,8 +36,9 @@ function buildReaderChain(
 ): ReaderChainHandler {
   const apiConfig = options.api_config || {};
 
-  return Client
-    .builder()
+  const builder = new ChainWithUseMethod();
+
+  return builder
     .use(new SmartWeaveContractInteractReader(apiConfig))
     // Control what data is returned to the caller here
     .use((context) => {

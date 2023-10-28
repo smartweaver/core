@@ -1,5 +1,4 @@
 import { ApiConfig } from "arweave/node/lib/api";
-import { Client } from "../mod";
 import { TransactionSigner } from "../handlers/TransactionSigner";
 import { TransactionPoster } from "../handlers/TransactionPoster";
 import { JWKInterface } from "arweave/node/lib/wallet";
@@ -7,6 +6,7 @@ import Arweave, { CreateTransactionInterface } from "arweave/node/common";
 import { createWriteInteractionTransactionTags, tag } from "../utils/tagger";
 import Transaction from "arweave/node/lib/transaction";
 import { TransactionCreator } from "../handlers/TransactionCreator";
+import { ChainWithUseMethod } from "./ChainWithUseMethod.ts";
 
 type WriterChainHandler = {
   handle<R>(context: HandleMethodContext): Promise<HandlerOutput & R>;
@@ -53,11 +53,12 @@ export type HandlerOutput = {
  */
 function buildWriterChain(
   options: WriterChainCreateOptions,
-): WriterChainHandler {
+) {
   const apiConfig = options.api_config || {};
 
-  return Client
-    .builder()
+  const builder = new ChainWithUseMethod();
+
+  return builder
     .use((context) => {
       context.transaction_attributes = {
         ...context.transaction_attributes,
@@ -85,7 +86,7 @@ function buildWriterChain(
         interaction_transaction: context.transaction,
       };
     })
-    .build<HandleMethodContext>();
+    .build();
 }
 
 export class WriterChain {

@@ -1,4 +1,4 @@
-import { TransactionHandler } from "./TransactionHandler";
+import { ArweaveHandler } from "./ArweaveHandler";
 import { readContract } from "smartweave";
 
 type ReadResult = {
@@ -14,7 +14,7 @@ type Context = {
 /**
  * Relay handler to SmartWeave's `readContract()` function.
  */
-export class SmartWeaveContractViewer extends TransactionHandler {
+export class SmartWeaveContractViewer extends ArweaveHandler {
   public handle(context: Context) {
     return Promise
       .resolve()
@@ -32,6 +32,6 @@ export class SmartWeaveContractViewer extends TransactionHandler {
           read_result: result,
         };
       })
-      .then((newContext) => super.sendToNextHandler(newContext));
+      .then((newContext) => super.next(newContext));
   }
 }

@@ -1,5 +1,4 @@
 import { ApiConfig } from "arweave/node/lib/api";
-import { Client } from "../mod";
 import { TransactionSigner } from "../handlers/TransactionSigner";
 import { TransactionPoster } from "../handlers/TransactionPoster";
 import { JWKInterface } from "arweave/node/lib/wallet";
@@ -11,6 +10,7 @@ import {
 } from "../utils/tagger";
 import { TransactionCreator } from "../handlers/TransactionCreator";
 import { TransactionTagger } from "../handlers/TransactionTagger";
+import { ChainWithUseMethod } from "./ChainWithUseMethod.ts";
 
 type DeployChainHandler = {
   handle<R>(context: HandleMethodContext): Promise<HandlerOutput & R>;
@@ -66,8 +66,9 @@ function buildDeployChain(
 
   const tagger = new TransactionTagger();
 
-  return Client
-    .builder()
+  const builder = new ChainWithUseMethod();
+
+  return builder
     // Set up the context for the TransactionCreator
     .use((context) => {
       context.transaction_attributes = context.source_code;
@@ -114,7 +115,7 @@ function buildDeployChain(
         contract_id: context.contract_id,
       };
     })
-    .build<HandleMethodContext>();
+    .build();
 }
 
 export class DeployChain {
