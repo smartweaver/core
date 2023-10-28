@@ -3,6 +3,7 @@
 cache/
 dist/
 node_modules/
+tmp/
 
 # Files
 .DS_Store

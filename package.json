@@ -1,31 +1,45 @@
 {
-  "name": "smart-weaver",
-  "version": "1.0.0",
-  "description": "SmartWeave with design patterns",
+  "name": "@crookse/smart-weaver",
+  "version": "0.0.1",
+  "description": "Patternized SmartWeave flows",
+  "author": "Eric Crooks",
+  "license": "GPL-3.0",
   "type": "module",
   "scripts": {
     "test": "vitest",
     "publish-local": "yarn unlink && yarn link",
-    "build": "rm -r dist && tsup src/mod.core.ts --format esm --dts && tsup src/modules/mod.clients.ts --format esm --dts && tsup src/modules/mod.contracts.ts --format esm --dts"
+    "build": "./scripts/build_dist"
   },
-  "keywords": [],
-  "author": "Eric Crooks",
-  "license": "GPL-3.0",
+  "keywords": [
+    "arweave",
+    "blockchain",
+    "blockweave",
+    "contracts",
+    "crypto",
+    "dapps",
+    "drashland",
+    "framework",
+    "http",
+    "permanence",
+    "smart-contracts",
+    "smartweave",
+    "web3"
+  ],
   "files": [
     "./dist/**"
   ],
-  "devDependencies": {
-    "arlocal": "^1.1.62",
+  "dependencies": {
     "arweave": "^1.14.4",
     "smartweave": "^0.4.49",
+    "warp-arbundles": "^1.0.4",
+    "warp-contracts": "^1.4.22",
+    "warp-contracts-plugin-deploy": "^1.0.9"
+  },
+  "devDependencies": {
+    "arlocal": "^1.1.62",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
-    "vitest": "^0.34.6",
-    "warp-arbundles": "^1.0.4",
-    "warp-contracts": "^1.4.22"
-  },
-  "dependencies": {
-    "warp-contracts-plugin-deploy": "^1.0.9"
+    "vitest": "^0.34.6"
   }
 }
