@@ -5,7 +5,7 @@
   "author": "Eric Crooks <eric.crooks.github@gmail.com> (https://crookse.com)",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "tsup src --format esm,cjs --dts --no-splitting",
+    "build": "pnpm tsup-node src --format esm --dts --no-splitting --treeshake",
     "test": "vitest",
     "publish:npm": "pnpm build && pnpm publish"
   },
