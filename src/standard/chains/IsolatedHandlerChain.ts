@@ -38,6 +38,15 @@ class IsolatedHandlerChainBuilder
  * chain is looked up by their key.
  */
 export class IsolatedHandlerChain {
-  protected chain_builder: IsolatedHandlerChainBuilder =
-    new IsolatedHandlerChainBuilder();
+  /**
+   * TODO(crookse) Make succint.
+   * This class hides the actual chain builder so the exposed members are
+   * controlled by the extending class.
+   */
+  protected chain_builder = new IsolatedHandlerChainBuilder();
+
+  protected handler(handler: HandlerWithFunctionName) {
+    this.chain_builder.handler(handler);
+    return this;
+  }
 }
