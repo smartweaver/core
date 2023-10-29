@@ -7,7 +7,8 @@ import { HandlerWithFunctionName } from "../handlers/HandlerWithFunctionName.ts"
  * key-value pairs so that handlers can be called in isolation instead of being
  * able to pass their inputs to a next handler.
  */
-class IsolatedHandlerChainBuilder extends AbstractChainBuilder<HandlerWithFunctionName> {
+class IsolatedHandlerChainBuilder
+  extends AbstractChainBuilder<HandlerWithFunctionName> {
   /**
    * Build a key-value pair object of the handlers.
    * @returns The handlers in key-value pairs where the key is their
@@ -37,5 +38,6 @@ class IsolatedHandlerChainBuilder extends AbstractChainBuilder<HandlerWithFuncti
  * chain is looked up by their key.
  */
 export class IsolatedHandlerChain {
-  protected chain_builder: IsolatedHandlerChainBuilder = new IsolatedHandlerChainBuilder();
+  protected chain_builder: IsolatedHandlerChainBuilder =
+    new IsolatedHandlerChainBuilder();
 }
