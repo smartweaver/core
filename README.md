@@ -52,7 +52,7 @@ from:
 - Standard
 - Third-party code (e.g., `smartweave` and `warp-contracts`)
 
-__Module Names__
+**Module Names**
 
 Each module has a `smart-weaver-` prefix followed by a "type" and its name in
 its repository. The full naming convention is:
@@ -64,6 +64,6 @@ smart-weaver-{type of implementation}-{name of module}
 Using the above format means:
 
 - `smart-weaver-client-arweave` is a SmartWeaver client implementation named
-  `Arweave`
+  "arweave"
 - `smart-weaver-contract-chained` is a SmartWeaver contract implementation named
-  `ContractChained`
+  "chained"
