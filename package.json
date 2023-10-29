@@ -1,13 +1,13 @@
 {
   "name": "@crookse/smart-weaver",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Provider of patternized SmartWeave workflows",
   "author": "Eric Crooks <eric.crooks.github@gmail.com> (https://crookse.com)",
   "license": "GPL-3.0",
   "scripts": {
     "build": "./scripts/build_lib",
     "test": "vitest",
-    "publish:npm": "pnpm build && cp package.json lib/package.json && cd lib && pnpm publish"
+    "publish:npm": "./scripts/publish_npm"
   },
   "keywords": [
     "arweave",
