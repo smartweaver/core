@@ -1,7 +1,7 @@
-import { Handler } from "../../core/handlers/Handler.ts";
 import { AbstractChainBuilder } from "../../core/chains/AbstractChainBuilder.ts";
+import { HandlerWithFunctionName } from "../handlers/HandlerWithFunctionName.ts";
 
-class ChainBuilder extends AbstractChainBuilder<Handler> {
+class ChainBuilder extends AbstractChainBuilder<HandlerWithFunctionName> {
   /**
    * Build the chain -- linking all handlers in sequential order.
    * @returns The first handler.
@@ -27,11 +27,15 @@ class ChainBuilder extends AbstractChainBuilder<Handler> {
   }
 }
 
+/**
+ * This differs from the `NextableHandlerChain` because each handler in this
+ * chain is looked up by their key.
+ */
 export class IsolatedHandlerChain {
-  #chain_builder: ChainBuilder = new ChainBuilder();
+  protected chain_builder: ChainBuilder = new ChainBuilder();
 
   build() {
-    const chain = this.#chain_builder.build();
+    const chain = this.chain_builder.build();
 
     return {
       handle: <R = any, C = any>(context: C): Promise<R> => {
