@@ -1,1 +1,3 @@
-# smart-weaver
+# SmartWeaver
+
+Patternized SmartWeave flows

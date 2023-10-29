@@ -1,45 +1,16 @@
 {
-  "name": "@crookse/smart-weaver",
-  "version": "0.0.8",
-  "description": "Patternized SmartWeave flows",
-  "author": "Eric Crooks",
-  "license": "GPL-3.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "test": "vitest",
-    "build": "./scripts/build_lib",
-    "publish-package": "pnpm build && pnpm publish"
-  },
-  "keywords": [
-    "arweave",
-    "blockchain",
-    "blockweave",
-    "contracts",
-    "crypto",
-    "dapps",
-    "drashland",
-    "framework",
-    "http",
-    "permanence",
-    "smart-contracts",
-    "smartweave",
-    "web3"
-  ],
-  "dependencies": {
+    "build": "turbo build",
+    "dev": "turbo dev --no-cache --continue",
+    "clean": "turbo clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build --filter=docs^... && changeset publish"
   },
   "devDependencies": {
-    "arlocal": "^1.1.62",
-    "arweave": "^1.14.4",
-    "smartweave": "^0.4.49",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
-    "vitest": "^0.34.6",
-    "warp-arbundles": "^1.0.4",
-    "warp-contracts-plugin-deploy": "^1.0.9",
-    "warp-contracts": "^1.4.22"
+    "@changesets/cli": "^2.22.0",
+    "turbo": "latest"
   },
-  "files": [
-    "./lib"
-  ]
+  "packageManager": "pnpm@8.6.10"
 }

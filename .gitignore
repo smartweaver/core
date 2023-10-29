@@ -13,3 +13,13 @@ logs
 # We only use pnpm
 yarn.lock
 package-lock.json
+
+# Turbo-generated
+.cache
+.env
+.next
+.turbo
+*.local
+dist-ssr
+public/dist
+server/dist
