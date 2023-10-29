@@ -31,19 +31,19 @@ export class NextableHandlerChain {
    * This class hides the actual chain builder so the exposed members are
    * controlled by the extending class.
    */
-  #chain_builder = new ChainBuilder();
+  protected chain_builder = new ChainBuilder();
 
   protected handler(handler: NextableHandler) {
-    this.#chain_builder.handler(handler);
+    this.chain_builder.handler(handler);
     return this;
   }
 
   build() {
-    const chain = this.#chain_builder.build();
+    const firstHandlerInChain = this.chain_builder.build();
 
     return {
       handle: <R = any, C = any>(context: C): Promise<R> => {
-        return chain.handle(context);
+        return firstHandlerInChain.handle(context);
       },
     };
   }

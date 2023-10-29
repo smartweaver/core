@@ -9,6 +9,15 @@
     "test": "vitest",
     "publish:npm": "./scripts/publish_npm"
   },
+  "devDependencies": {
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/node": "^20.8.9",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6"
+  },
   "keywords": [
     "arweave",
     "blockchain",
@@ -24,13 +33,4 @@
     "smartweave",
     "web3"
   ],
-  "devDependencies": {
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "@types/node": "^20.8.9",
-    "vite": "^4.5.0",
-    "vitest": "^0.34.6"
-  }
 }
