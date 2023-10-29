@@ -2,7 +2,13 @@
 
 Patternized SmartWeave workflows
 
-### Codebases
+## Explore
+
+- https://github.com/crookse/smart-weaver-client-arweave
+- https://github.com/crookse/smart-weaver-client-warp
+- https://github.com/crookse/smart-weaver-contract-chained
+
+## Codebases
 
 The SmartWeaver ecosystem is made up of the following codebases:
 
@@ -12,7 +18,7 @@ The SmartWeaver ecosystem is made up of the following codebases:
 
 These codebases are explained in further detail below.
 
-## Core
+### Core
 
 This part of the codebase provides types, interfaces, and classes (with minimal
 implementation). It contains the lowest level APIs and is intended to help build
@@ -20,7 +26,7 @@ the Standard and Modules codebases.
 
 To separate concerns, Core does not import code from Standard or Modules.
 
-## Standard
+### Standard
 
 This part of the codebase is similar to Deno's Standard Library and Go's
 Standard Library, but smaller. Standard code is intended to be used as
@@ -30,7 +36,7 @@ smart-weaver-client-arweave).
 To separate concerns, Standard code only imports from Standard and Core. It does
 not import from Modules.
 
-## Modules
+### Modules
 
 This part of the codebase is:
 
@@ -46,15 +52,7 @@ from:
 - Standard
 - Third-party code (e.g., `smartweave` and `warp-contracts`)
 
-### Modules
-
-The SmartWeaver modules are:
-
-- https://github.com/crookse/smart-weaver-client-arweave
-- https://github.com/crookse/smart-weaver-client-warp
-- https://github.com/crookse/smart-weaver-contract-chained
-
-### Module Names
+__Module Names__
 
 Each module has a `smart-weaver-` prefix followed by a "type" and its name in
 its repository. The full naming convention is:
