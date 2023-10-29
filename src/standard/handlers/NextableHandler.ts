@@ -1,4 +1,4 @@
-import { Handler } from "@crookse/smart-weaver-core/src/handlers/Handler";
+import { Handler } from "../../core/handlers/Handler.ts";
 
 export class NextableHandler implements Handler {
   protected next_handler: Handler | null = null;

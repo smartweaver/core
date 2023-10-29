@@ -18,7 +18,6 @@ export abstract class AbstractChainBuilder<H extends Handler = Handler> {
    */
   public handler(handler: H): this {
     this.handlers.push(handler);
-
     return this;
   }
 }

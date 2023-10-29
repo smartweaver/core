@@ -1,9 +1,11 @@
-import { AbstractChainBuilder } from "@crookse/smart-weaver-core/src/chains/AbstractChainBuilder";
-import { NextableHandler } from "./NextableHandler";
-
-export type FirstHandler<C> = { handle: <R = any>(context: C) => Promise<R> };
+import { AbstractChainBuilder } from "../../core/chains/AbstractChainBuilder.ts";
+import { NextableHandler } from "../handlers/NextableHandler.ts";
 
 class ChainBuilder extends AbstractChainBuilder<NextableHandler> {
+  /**
+   * Build the chain -- linking all handlers in sequential order.
+   * @returns The first handler.
+   */
   build() {
     if (!this.handlers) {
       throw new Error("Chain.Builder: `this.handlers` should be an array");

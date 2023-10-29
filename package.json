@@ -1,16 +1,30 @@
 {
-  "private": true,
+  "name": "@crookse/smart-weaver",
+  "version": "0.0.8",
+  "description": "Provider of patternized SmartWeave workflows",
+  "author": "Eric Crooks <eric.crooks.github@gmail.com> (https://crookse.com)",
+  "license": "GPL-3.0",
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev --no-cache --continue",
-    "clean": "turbo clean && rm -rf node_modules",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "turbo build --filter=docs^... && changeset publish"
+    "build": "tsup src --format esm,cjs --dts --no-splitting",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
-    "turbo": "latest"
+    "tsup": "^5.10.1",
+    "typescript": "^4.5.3"
   },
-  "packageManager": "pnpm@8.6.10"
+  "keywords": [
+    "arweave",
+    "blockchain",
+    "blockweave",
+    "contracts",
+    "crypto",
+    "dapps",
+    "drashland",
+    "framework",
+    "http",
+    "permanence",
+    "smart-contracts",
+    "smartweave",
+    "web3"
+  ]
 }

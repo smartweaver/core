@@ -1,4 +1,4 @@
-import { Handler } from "@crookse/smart-weaver-core/src/handlers/Handler";
+import { Handler } from "../../core/handlers/Handler.ts";
 
 export type AnonymousFn = (context: any) => any;
 
