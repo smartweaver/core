@@ -1,12 +1,21 @@
 # SmartWeaver
 
-Patternized SmartWeave workflows
+Steezy SmartWeave tools and workflows
 
 ## Explore
 
+### Clients
+
+These modules enable you to connect to the Arweave network to process smart contracts (e.g., deploy, interact, read, etc.).
+
 - https://github.com/crookse/smart-weaver-client-arweave
 - https://github.com/crookse/smart-weaver-client-warp
-- https://github.com/crookse/smart-weaver-contract-chained
+
+### Contracts
+
+These modules enable you to write smart contracts. Use them to write a contract and deploy them using one of the [Clients](#clients) above.
+
+- https://github.com/crookse/smart-weaver-contract-slick-contract
 
 ## Codebases
 
@@ -51,19 +60,3 @@ from:
 - Core
 - Standard
 - Third-party code (e.g., `smartweave` and `warp-contracts`)
-
-**Module Names**
-
-Each module has a `smart-weaver-` prefix followed by a "type" and its name in
-its repository. The full naming convention is:
-
-```
-smart-weaver-{type of implementation}-{name of module}
-```
-
-Using the above format means:
-
-- `smart-weaver-client-arweave` is a SmartWeaver client implementation named
-  "arweave"
-- `smart-weaver-contract-chained` is a SmartWeaver contract implementation named
-  "chained"
