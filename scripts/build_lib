@@ -4,12 +4,7 @@
   rm -r dist 2>/dev/null
   rm -r lib 2>/dev/null
 
-  pnpm tsup-node src --format cjs,esm --dts --no-splitting --treeshake --legacy-output
+  pnpm tsup src --format cjs,esm --no-splitting --dts
 
   mv dist lib
-
-  mkdir -p lib/cjs
-
-  mv lib/core lib/cjs/core
-  mv lib/standard lib/cjs/standard
 )
