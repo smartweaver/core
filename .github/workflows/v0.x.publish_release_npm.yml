@@ -73,7 +73,7 @@ jobs:
   publish:
     name: Publish to registry (https://registry.npmjs.org)
     needs: [check_release_version, lint_code, code_formatting]
-    if: startsWith(github.event.release.tag_name, 'v3.')
+    if: startsWith(github.event.release.tag_name, 'v0.')
 
     runs-on: ubuntu-latest
 

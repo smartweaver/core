@@ -4,6 +4,10 @@
   "description": "A collection of code intended to help you build your Steezy SmartWeave tooling and workflows",
   "author": "Eric Crooks <eric.crooks.github@gmail.com> (https://crookse.com)",
   "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/smartweaver/core.git"
+  },
   "type": "module",
   "devDependencies": {
     "ts-node": "10.x",
