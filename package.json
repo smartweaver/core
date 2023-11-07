@@ -1,6 +1,6 @@
 {
   "name": "@smartweaver/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A collection of code intended to help you build your Steezy SmartWeave tooling and workflows",
   "author": "Eric Crooks <eric.crooks.github@gmail.com> (https://crookse.com)",
   "license": "GPL-3.0",
