@@ -3,7 +3,6 @@
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "inlineSources": false,
-    "isolatedModules": true,
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -14,7 +13,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2015"
+    "target": "es2017"
   },
-  "exclude": ["node_modules", "_unstable"]
+  "include": [
+    "./src/**/*.ts",
+    "./tests/**/*.ts",
+    "./scripts/**/*.ts"
+  ]
 }

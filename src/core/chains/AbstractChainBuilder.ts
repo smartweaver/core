@@ -1,4 +1,4 @@
-import type { Handler } from "../handlers/Handler";
+import type { Handler } from "../handlers/Handler.ts";
 
 export abstract class AbstractChainBuilder<H extends Handler = Handler> {
   /**
