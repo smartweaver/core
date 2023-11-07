@@ -41,3 +41,82 @@ Modules import the most functionality for things like processing contract intera
 - Core
 - Standard
 - Third-party code (e.g., `smartweave`, `arweave`)
+
+## Contributing
+
+### Prerequisites
+
+- Install Node (use the Node version in `nvmrc`)
+- Install Deno (use the latest v1.x version)
+
+### Tests
+
+Tests are in the `tests` directory. The `tests` directory has a strict structure and naming convention as follows:
+
+- The `tests` directory structure mimics the `src` directory structure:
+
+    ```text
+    ▾  src/
+      ▾  standard/
+        ▸  handlers/
+    ▾  tests/
+      ▸  core/
+      ▾  standard/
+        ▸  handlers/
+    ```
+
+- Test file names mimic the file they test, include the type of tests they contain, and end of `.test.ts`:
+
+    ```text
+    Format:    <file being tested>.<test type>.test.ts
+
+    src file:  IsolatedHandlerChain.ts
+    test file: IsolatedHandlerChain.unit.test.ts
+    ```
+
+Here is an example of the conventions mentioned above:
+
+```text
+▾  src/
+  ▸  core/
+  ▾  standard/
+    ▾  chains/
+         IsolatedHandlerChain.ts
+    ▸  handlers/
+▾  tests/
+  ▸  core/
+  ▾  standard/
+    ▾  chains/
+         IsolatedHandlerChain.unit.test.ts
+         IsolatedHandlerChain.integration.test.ts
+    ▸  handlers/
+```
+
+### Development Tips
+
+1. Use Node version in `nvmrc`.
+
+1. Do not add scripts to `package.json`. Add scripts to `deno.json`. This repo uses `deno task <script>`, not `yarn <script>`.
+
+1. Add tests if you can. If you do, follow the conventions mentioned above in the [Tests](#tests) section.
+
+1. Add a summary to your pull request and how to exercise your work. For example:
+
+    ```text
+    ## Summary
+    
+    - Added this
+    - Changed that
+
+    ## How to test
+
+    1. Run this script.
+
+    1. Run the tests.
+
+    1. Import this module and check the typings.
+
+    ... etc.
+    ```
+
+1. GitHub actions are in place to check pull requests for lint and formatting. Use `deno lint` and `deno fmt` to help you make fixes/changes.
