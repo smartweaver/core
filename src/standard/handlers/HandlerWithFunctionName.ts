@@ -1,4 +1,4 @@
-import { Handler } from "../../core/handlers/Handler.ts";
+import { Handler } from "../../handlers/Handler.ts";
 
 export abstract class HandlerWithFunctionName implements Handler {
   readonly function_name: string;

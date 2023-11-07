@@ -1,4 +1,4 @@
-import { AbstractChainBuilder } from "../../core/chains/AbstractChainBuilder.ts";
+import { AbstractChainBuilder } from "../../chains/AbstractChainBuilder.ts";
 import { HandlerWithFunctionName } from "../handlers/HandlerWithFunctionName.ts";
 
 /**

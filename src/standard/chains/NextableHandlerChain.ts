@@ -1,4 +1,4 @@
-import { AbstractChainBuilder } from "../../core/chains/AbstractChainBuilder.ts";
+import { AbstractChainBuilder } from "../../chains/AbstractChainBuilder.ts";
 import { NextableHandler } from "../handlers/NextableHandler.ts";
 
 class ChainBuilder extends AbstractChainBuilder<NextableHandler> {

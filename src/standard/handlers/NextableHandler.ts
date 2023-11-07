@@ -1,4 +1,4 @@
-import { Handler } from "../../core/handlers/Handler.ts";
+import { Handler } from "../../handlers/Handler.ts";
 
 export class NextableHandler implements Handler {
   protected next_handler: Handler | null = null;

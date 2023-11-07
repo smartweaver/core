@@ -1,4 +1,4 @@
-import { Handler } from "../../core/handlers/Handler.ts";
+import { Handler } from "../../handlers/Handler.ts";
 
 export type AnonymousFn = (context: any) => any;
 

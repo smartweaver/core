@@ -10,9 +10,9 @@ View SmartWeaver projects at https://github.com/smartweaver.
 
 The SmartWeaver ecosystem is made up of the following codebases:
 
-- Core (included in this module)
-- Standard (included in this module)
-- Modules (found at https://github.com/smartweaver)
+- Core: All files/directories in the `src` directory (excluding `src/standard`)
+- Standard: All files/directories in the `src/standard` directory
+- Modules: All repositories at https://github.com/smartweaver excluding the `core` repository
 
 These codebases are explained in further detail below.
 
